@@ -15,9 +15,13 @@
 ## 
 ###############################################################################
 
-## FILE PATHS MANAGEMENT ##
+##############################################################
+##	FILE PATHS MANAGEMENT									##
+##############################################################
+
 #Permits changing file paths without changing script.
-#WARNING! Changed files must have the same structure.
+#WARNING! Changed files must keep the same structure.
+
 TOLLS_FILE=portagens.txt #File Structure: <ID_portagem>:<Lanço>:<Auto-estrada atribuída>:<Taxa de utilização (em créditos)>
 TOLLS_RECORD_FILE=relatorio_utilizacao.txt #File Structure: <ID Portagem>:<Lanço>:<ID Condutor>:<Matrícula>:<Taxa_Portagem>:<Data>
 DRIVERS_FILE=condutores.txt #File Structure: <ID>-<Nome>;<ID carta condução>;<Contacto>;<Nr Contribuinte>;<Saldo (em créditos)>
@@ -27,7 +31,10 @@ DRIVERS_TEMP_FILE=condutores.tmp
 TOLLS_RECORD_TEMP_FILE=relatorio_utilizacao.tmp
 
 
-## INPUTS VALIDATION ##
+##############################################################
+##	INPUTS VALIDATION										##
+##############################################################
+
 #Checks if there is at least one argument. If not, returns @ERROR and exits.
 #@ERROR Invalid number of inputs.
 if [ -z $1 ]; then
@@ -36,7 +43,9 @@ if [ -z $1 ]; then
 fi
 
 
-### MAIN ###
+##############################################################
+##	MAIN													##
+##############################################################
 
 case $1
 in

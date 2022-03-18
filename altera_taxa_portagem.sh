@@ -13,16 +13,23 @@
 ##
 ###############################################################################
 
-## FILE PATHS MANAGEMENT ##
+##############################################################
+##	FILE PATHS MANAGEMENT									##
+##############################################################
+
 #Permits changing file paths without changing script.
-#WARNING! Changed files must have the same structure.
+#WARNING! Changed files must keep the same structure.
+
 TOLLS_FILE=portagens.txt #File Structure: <ID_portagem>:<Lanço>:<Auto-estrada atribuída>:<Taxa de utilização (em créditos)>
 
 #Temporary files.
 TOLLS_TEMP_FILE=portagens.tmp
 
 
-## INPUTS VALIDATION ##
+##############################################################
+##	INPUTS VALIDATION										##
+##############################################################
+
 #Checks if the number of arguments is lower than 3.
 #@ERROR Invalid number of inputs.
 if [[ $# -lt 3 ]];
@@ -56,7 +63,9 @@ if ! [[ $3 =~ ^[0-9]+$ ]];
 fi
 
 
-### MAIN ###
+##############################################################
+##	MAIN													##
+##############################################################
 
 #Checks if TOLLS_FILE exists. If not, creates a new empty TOLLS_FILE.
 if [ ! -f $TOLLS_FILE ];

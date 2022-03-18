@@ -5,25 +5,32 @@
 ##
 ## Aluno: Nº: 103955  Nome: Diogo Ribeiro
 ## Nome do Módulo: menu.sh
-## Descrição/Explicação do Módulo: Scut-IUL Interface - Automatic Toll Payment Management System Platform.
+## Descrição/Explicação do Módulo: Scut-IUL's Interface - Automatic Toll Payment Management System.
 ##
 ##
 ###############################################################################
 
-## EXTERNAL SCRIPTS ##
+##############################################################
+##	SCRIPT PATHS MANAGEMENT									##
+##############################################################
+
 #Permits an easy directory management.
+#WARNING! Scripts must keep their INPUT/OUTPUT structure.
+
 DRIVERS_LIST_SCRIPT=./lista_condutores.sh
 TOLL_CHANGE_SCRIPT=./altera_taxa_portagem.sh
 STATS_SCRIPT=./stats.sh
 BILLING_SCRIPT=./faturacao.sh
 
 
-### MAIN ###
+##############################################################
+##	MAIN													##
+##############################################################
 
 #Runs MENU iteratively until EXIT option is chosen.
 while :;
 do
-	#MENU options
+	#MENU Options
 	#Asks which action the user wants to run
 	echo "1. Listar condutores"
 	echo "2. Altera taxa de portagem"
@@ -31,11 +38,11 @@ do
 	echo "4. Faturação"
 	echo "0. Sair"
 	echo
-	#Option selector via keyboard reader
+	#Scans user INPUT choice
 	read -p "Opção: " opt
 	echo
 
-	#Chooses action based on user's previous input
+	#Chooses action based on user's INPUT
 	case $opt
 	in
 		1)
@@ -49,20 +56,23 @@ do
 			echo "Altera taxa de portagem..."
 			echo
 			read -p "Lanço		: " segment
-			read -p "Auto-estrada	: " motorway
+			read -p "Auto-estrada	: " highway
 			read -p "Novo valor taxa	: " cost
 			echo
 			
 			#Runs TOLL_CHANGE_SCRIPT
-			$TOLL_CHANGE_SCRIPT $segment $motorway $cost
+			$TOLL_CHANGE_SCRIPT $segment $highway $cost
 			echo
 			;;
 			
 		3)
-			### Uncomment WHILE to make iterative STATS_MENU
-#			#Runs STATS_MENU iteratively until RETURN option is chosen.
-#			while :;
-#			do
+#||	OPTIONAL - Iterative Stats Menu###
+#||		Uncomment WHILE to make iterative STATS_MENU.
+#||		HOW TO: remove '###' from all lines starting with ###.
+#||
+###			#Runs STATS_MENU iteratively until RETURN option is chosen.
+###			while :;
+###			do
 				#STATS_MENU options.
 				#Asks which report the user wants to see.
 				echo "Stats"
@@ -82,7 +92,6 @@ do
 						echo
 						$STATS_SCRIPT "listar"
 						echo
-						continue
 						;;
 					
 					2)
@@ -93,7 +102,6 @@ do
 						#Returns a report of all Highways that have at least one Segment registered on the platform.
 						$STATS_SCRIPT "registos" $statsOpt2
 						echo
-						continue
 						;;
 					
 					3)
@@ -102,13 +110,12 @@ do
 						echo
 						$STATS_SCRIPT "condutores"
 						echo
-						continue
 						;;
 					
 					0)
 						#Returns to previous menu (MENU)
 						echo
-						break
+###						break
 						;;
 					
 					*)
@@ -117,11 +124,10 @@ do
 						echo
 						./error 3 $statsOpt
 						echo
-						echo "Selecione uma das opções apresentadas:"
-						continue
+###						echo "Selecione uma das opções apresentadas:"
 						;;
 				esac
-#			done
+###			done
 			;;
 			
 		4)
@@ -142,7 +148,6 @@ do
 			echo
 			echo "Selecione uma das opções apresentadas:"
 			echo
-			continue
 			;;
 	esac
 done
