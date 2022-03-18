@@ -1,0 +1,11 @@
+2:LISBOA-PORTO:A1:60
+1:PORTO-LISBOA:A1:30
+8:Sintra-Lisboa:A10:5
+3:LISBOA-AVEIRO:A2:10
+5:FARO-LISBOA:A3:30
+4:LISBOA-FARO:A3:20
+7:Porto-Faro:A3:15
+6:Lisboa-Porto:A4:13
+1:Braga-Leiria:A9:28
+1:Leiria-Braga:A7:28
+9:Braga-Faro:A9:37
